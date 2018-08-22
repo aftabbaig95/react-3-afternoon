@@ -10,7 +10,7 @@ export default class Compose extends Component {
     super();
     
     this.state = {
-      text: ''
+      text: '' 
     };
 
     this.createPost = this.createPost.bind( this );
@@ -21,7 +21,11 @@ export default class Compose extends Component {
   }
 
   createPost() {
-
+    const { text } = this.state;
+    const { createPostFn } = this.props;
+  
+    createPostFn( text );
+    this.setState({ text: '' });
   }
 
   render() {
